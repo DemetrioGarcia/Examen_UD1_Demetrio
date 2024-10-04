@@ -44,6 +44,9 @@ public class Examen {
                 aazu = entrada.nextInt();
                 System.out.println("Introduce el largo del azulejo");
                 lazu = entrada.nextInt();
+                if (apared<=0 || lpared<=0 || aazu<=0 || lazu<=0){
+                    System.out.println("ERROR. No puede medir 0 metros. Vuelve a introducir los datos");
+                }
             } catch (NumberFormatException | InputMismatchException e) {
                 System.out.println("ERROR. Introduce un valor válido...");
                 entrada.next();
