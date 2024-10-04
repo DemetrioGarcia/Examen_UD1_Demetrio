@@ -30,15 +30,25 @@ public class Examen {
     public static void ejercicio2(){
         Scanner entrada=new Scanner(System.in); //(explicado en ejercicio anterior)
 
-        System.out.println("Introduce el ancho de la pared");
-        int apared = entrada.nextInt();
-        System.out.println("Introduce el largo de la pared");
-        int lpared = entrada.nextInt();
-        System.out.println("Introduce el ancho del azulejo");
-        int aazu = entrada.nextInt();
-        System.out.println("Introduce el largo del azulejo");
-        int lazu = entrada.nextInt();
-
+        int apared=0, lazu=0, lpared=0, aazu=0;
+        System.out.println("Introduce tu nombre");
+        String nombre = entrada.next();
+        System.out.println("La obra de "+nombre+" (Recuerda que 0 no es una entrada valida)");
+        while (apared<=0 || lpared<=0 || aazu<=0 || lazu<=0) { //Con este While además de asegurar que no puede salir del try-catch con valores invalidos, asegura que los valores tengan de ser positivos.
+            try {
+                System.out.println("Introduce el ancho de la pared");
+                apared = entrada.nextInt();
+                System.out.println("Introduce el largo de la pared");
+                lpared = entrada.nextInt();
+                System.out.println("Introduce el ancho del azulejo");
+                aazu = entrada.nextInt();
+                System.out.println("Introduce el largo del azulejo");
+                lazu = entrada.nextInt();
+            } catch (NumberFormatException | InputMismatchException e) {
+                System.out.println("ERROR. Introduce un valor válido...");
+                entrada.next();
+            }
+        }
         if (aazu == lazu){      // Despues de pedir los valores comparamos el ancho y largo del azulejo para comprobar que es rectangular
             System.out.println("El azulejo no puede ser cuadrado");
         }
